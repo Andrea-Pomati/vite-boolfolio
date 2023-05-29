@@ -45,12 +45,12 @@ export default {
 
     <tbody>
 
-      <tr>
-        <td>Titolo</td>
-        <td>Slug</td>
-        <td>Contenuto</td>
+      <tr v-for="project in projects">
+        <td>{{ project.title }}</td>
+        <td>{{ project.slug }}</td>
+        <td>{{ project.content}}</td>
       </tr>
-      
+
     </tbody>
   </table>
 </div>
