@@ -2,6 +2,10 @@
 
 import axios from 'axios';
 
+import ProjectCard from './components/ProjectCard.vue';
+
+
+
 export default {
   name:'App',
 
@@ -11,6 +15,11 @@ export default {
       projects: [],
 
     }
+  },
+
+  components: {
+    ProjectCard,
+
   },
 
   created() {
@@ -36,23 +45,13 @@ export default {
 
   <hr>
 
-  <table class="table table-striped">
-    <thead>
-      <th>Titolo</th>
-      <th>Slug</th>
-      <th>Contenuto</th>
-    </thead>
+  <div class="row">
+    <div class="col-4">
+      <ProjectCard></ProjectCard>
+    </div>
+  </div>
 
-    <tbody>
-
-      <tr v-for="project in projects">
-        <td>{{ project.title }}</td>
-        <td>{{ project.slug }}</td>
-        <td>{{ project.content}}</td>
-      </tr>
-
-    </tbody>
-  </table>
+  
 </div>
 </template>
 
