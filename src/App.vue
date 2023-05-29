@@ -20,8 +20,9 @@ export default {
   methods: {
     getProjects() {
 
-      axios.get('http://127.0.0.1:8000/api/projects').then(Response => {
-        console.log(Response);
+      axios.get('http://127.0.0.1:8000/api/projects').then(response => {
+        console.log(response.data.results);
+        this.projects = response.data.results;
       });
     
     }
@@ -35,7 +36,23 @@ export default {
 
   <hr>
 
+  <table class="table table-striped">
+    <thead>
+      <th>Titolo</th>
+      <th>Slug</th>
+      <th>Contenuto</th>
+    </thead>
 
+    <tbody>
+
+      <tr>
+        <td>Titolo</td>
+        <td>Slug</td>
+        <td>Contenuto</td>
+      </tr>
+      
+    </tbody>
+  </table>
 </div>
 </template>
 
