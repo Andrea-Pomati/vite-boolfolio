@@ -29,6 +29,10 @@ export default {
           <router-link class="nav-link" :to="{ name: 'projects.index'}">Tutti i miei progetti</router-link>
         </li>
 
+        <li class="nav-item">
+          <router-link class="nav-link" :to="{ name: 'about'}">Su di me</router-link>
+        </li>
+
       </ul>
 
     </div>
