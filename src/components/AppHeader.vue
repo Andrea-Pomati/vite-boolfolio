@@ -53,5 +53,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+$primary: #89fc00;
+  .btn-outline-success {
+    color: $primary;
+    border-color: $primary;
+  }
 
+  .btn {
+    color: $primary;
+  }
 </style>
