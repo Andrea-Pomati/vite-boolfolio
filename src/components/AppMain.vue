@@ -4,78 +4,73 @@ import axios from 'axios';
 import ProjectCard from './ProjectCard.vue';
 
 export default {
-    name: 'AppMain',
+  name: 'AppMain',
+  data() {
+    return {
 
-    data() {
-        return {
-            projects: [],
+      apiURL: 'http://127.0.0.1:8000/api/projects',
 
-            currentPage: 1,
-        }
-    },
+      projects: [],
 
-    components: {
-    ProjectCard,
+      pagination: {}, 
+
+    }
   },
 
-  created() {
-    this.getProjects();
+  components: {
+    ProjectCard,
+},  
+
+  mounted() {
+    this.getProjects(this.apiURL);
   },
 
   methods: {
-    getProjects() {
-      // http://127.0.0.1:8000/api/projects
-      
-      axios.get('http://127.0.0.1:8000/api/projects?page=' + this.currentPage).then(response => {
-        console.log(response.data.results.data);
+    getProjects(apiURL) {
+      axios.get(apiURL).then(response => {
+        console.log(response.data.results);
+        
         this.projects = response.data.results.data;
-      });
-    
-    },
 
-    nextPage() {
-        this.currentPage++;
-        this.getProjects();
-    }
-  },
+        this.pagination = response.data.results;
+      });
+    },
+  }
 }
 </script>
 
 <template>
+  <div class="container py-5">
 
-<div v-if="projects.length > 0" class="container pt-5">
-  <h1>Tutti i progetti del mio portfolio</h1>
+    <h1>Boolfolio</h1>
 
-  <hr>
+    <div class="row">
+      <div v-for="project in projects" class="col-md-6 col-lg-4 mb-3">
+        <ProjectCard :project="project"></ProjectCard>
+      </div>
+    </div>
 
-  <div class="row">
-    <div v-for="project in projects" class="col-4 mb-5">
+    <hr>
 
-      <ProjectCard :project="project"></ProjectCard>
+    <div class="projects-navigation">
+
+      <button v-for="link in pagination.links"
+        class="btn" 
+        :class="link.active ? 'btn-primary' : 'btn-outline-secondary'" 
+        v-html="link.label" 
+        :disabled="link.url == null ? true : false" 
+        @click="getProjects(link.url)">
+        
+      </button>
+
     </div>
   </div>
-
-  <div class="d-flex justify.around">
-    <button @click="nextPage()">Next</button>
-  </div>
-  
-</div>
-
-<div v-else class="loading-screen">
-    <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
-</div>
-
 </template>
 
 <style lang="scss" scoped>
-    .loading-screen {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        height: 100%;
-        min-height: 600px;
-    }
+  .projects-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
 </style>
