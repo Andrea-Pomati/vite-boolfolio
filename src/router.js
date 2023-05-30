@@ -24,7 +24,7 @@ const router = createRouter ({
         },
 
         {
-            path: '/Projects',
+            path: '/projects',
             name: 'projects.index',
             component: ProjectsIndex,
         }
