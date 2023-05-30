@@ -3,6 +3,7 @@
 
 
 
+import AppFooter from './components/AppFooter.vue';
 import AppHeader from './components/AppHeader.vue';
 // import AppFooter from './components/AppFooter.vue';
 // import AppMain from './components/AppMain.vue';
@@ -18,8 +19,8 @@ export default {
   components: {
     // AppMain,
     AppHeader,
-    // AppFooter,
-  }
+    AppFooter
+}
  
 }
 </script>
@@ -32,6 +33,7 @@ export default {
 <AppFooter></AppFooter> -->
 <AppHeader></AppHeader>
 <router-view></router-view>
+<AppFooter></AppFooter>
 </template>
 
 <style scoped>
