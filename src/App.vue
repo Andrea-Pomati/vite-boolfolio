@@ -1,8 +1,13 @@
 <script>
 
-import axios from 'axios';
 
-import ProjectCard from './components/ProjectCard.vue';
+
+
+import AppHeader from './components/AppHeader.vue';
+
+import AppFooter from './components/AppFooter.vue';
+
+import AppMain from './components/AppMain.vue';
 
 
 
@@ -10,49 +15,23 @@ export default {
   name:'App',
 
   data() {
-    return {
-
-      projects: [],
-
-    }
+    return {};
   },
-
   components: {
-    ProjectCard,
-
-  },
-
-  created() {
-    this.getProjects();
-  },
-
-  methods: {
-    getProjects() {
-
-      axios.get('http://127.0.0.1:8000/api/projects').then(response => {
-        console.log(response.data.results);
-        this.projects = response.data.results;
-      });
-    
-    }
-  },
+    AppMain,
+    AppHeader,
+    AppFooter,
+  }
+ 
 }
 </script>
 
 <template>
-<div class="container pt-5">
-  <h1>Tutti i progetti del mio portfolio</h1>
+<AppHeader></AppHeader>
 
-  <hr>
+<AppMain></AppMain>
 
-  <div class="row">
-    <div class="col-4">
-      <ProjectCard></ProjectCard>
-    </div>
-  </div>
-
-  
-</div>
+<AppFooter></AppFooter>
 </template>
 
 <style scoped>
