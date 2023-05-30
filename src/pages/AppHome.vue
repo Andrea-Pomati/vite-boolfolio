@@ -13,6 +13,8 @@ export default {
 
     <hr>
 
+
+    <br>
     <router-link :to="{name: 'about'}">Vai alla pagina di about</router-link>
 </div>
 
