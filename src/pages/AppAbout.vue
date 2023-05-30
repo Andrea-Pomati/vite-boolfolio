@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <div class="container py-5">
         Sei nella pagina about
     </div>
 </template>
