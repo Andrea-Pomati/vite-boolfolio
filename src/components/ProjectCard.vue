@@ -52,12 +52,22 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+$primary: #89fc00;
     .project.card {
        .cover-image {
         height: 200px;
         object-fit: cover;
         object-position: center;
+        border: 1px solid $primary;
+       }
+
+       .card-body {
+        border: 1px solid $primary;
+
+       }
+
+       .card-title {
+        color: $primary;
        }
 
        .technologies {
