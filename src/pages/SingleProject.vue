@@ -68,6 +68,13 @@ export default {
             </div>
 
             <h1>{{ project.title }}</h1>
+            
+            <div class="technologies">
+                <span v-for="technology in project.technologies" class="badge rounded-pill" :style="{backgroundColor: technology.color}">{{ technology.name }}</span>
+            </div>
+            <h4>
+                {{ project.type ? project.type.name : 'Nessun tipo' }}
+            </h4>
             <hr>
             <p>
                 {{ project.content }}
@@ -100,5 +107,19 @@ export default {
 .project-image img {
     max-height: 400px;
     object-fit: cover;
+}
+
+
+.technologies {
+    display: flex;
+    justify-content: flex-start;
+            
+    align-items: center;
+
+    gap: .5em;
+
+    padding: .8em 0;
+
+    overflow-x: scroll;
 }
 </style>
