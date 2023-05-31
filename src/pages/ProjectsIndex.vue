@@ -31,7 +31,7 @@ export default {
       axios.get(apiURL).then(response => {
         console.log(response.data.results);
         
-        this.projects = response.data.results.data;
+        this.projects = response.data.results;
 
         this.pagination = response.data.results;
       });
