@@ -15,6 +15,7 @@ export default {
 
       pagination: {}, 
 
+
     }
   },
 
@@ -32,6 +33,7 @@ export default {
         console.log(response.data.results);
         
         this.projects = response.data.results;
+        
 
         this.pagination = response.data.results;
       });
@@ -44,6 +46,8 @@ export default {
  <div class="container py-5">
 
     <h1>Boolfolio</h1>
+
+
 
     <div class="row">
         <div v-for="project in projects" class="col-md-6 col-lg-4 mb-3">
