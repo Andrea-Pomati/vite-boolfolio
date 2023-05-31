@@ -44,7 +44,10 @@ export default {
                 <span v-for="technology in project.technologies" class="badge rounded-pill" :style="{backgroundColor: technology.color}">{{ technology.name }}</span>
             </div>
             <p class="card-text">{{ shortContent }}</p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <div class="text-center"> 
+                <router-link class="btn btn-outline-primary" to="">Visualizza</router-link>
+            </div>
+
         </div>
 
 </div>
